@@ -1,27 +1,47 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Code2, ExternalLink } from "lucide-react";
 import { projects } from "../data/projects";
 import Reveal from "./Reveal";
 
 function ProjectVideo({ src, poster, title }) {
-  const videoRef = useRef(null);
-  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef(null)
+  const [playing, setPlaying] = useState(false)
+  const [isTouch, setIsTouch] = useState(false)
+
+  useEffect(() => {
+    setIsTouch(window.matchMedia('(hover: none) and (pointer: coarse)').matches)
+  }, [])
 
   function handleEnter() {
-    setPlaying(true);
-    videoRef.current.play();
+    if (isTouch) return
+    setPlaying(true)
+    videoRef.current.play()
   }
 
   function handleLeave() {
-    setPlaying(false);
-    videoRef.current.pause();
-    videoRef.current.currentTime = 0;
+    if (isTouch) return
+    setPlaying(false)
+    videoRef.current.pause()
+    videoRef.current.currentTime = 0
+  }
+
+  function handleTap() {
+    if (!isTouch) return
+    if (playing) {
+      setPlaying(false)
+      videoRef.current.pause()
+      videoRef.current.currentTime = 0
+    } else {
+      setPlaying(true)
+      videoRef.current.play()
+    }
   }
 
   return (
     <div
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
+      onClick={handleTap}
       className="relative w-full rounded-lg overflow-hidden cursor-pointer"
     >
       <video
@@ -31,18 +51,21 @@ function ProjectVideo({ src, poster, title }) {
         muted
         loop
         playsInline
+        preload="none"
         className="w-full rounded-lg"
         aria-label={title}
       />
       <div
-        className={`absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity duration-300 ${playing ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        className={`absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity duration-300 ${
+          playing ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
       >
         <span className="text-white text-sm font-medium tracking-wide">
-          Hover to preview
+          {isTouch ? 'Tap to preview' : 'Hover to preview'}
         </span>
       </div>
     </div>
-  );
+  )
 }
 
 function CornerFrame() {

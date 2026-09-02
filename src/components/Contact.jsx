@@ -18,12 +18,12 @@ const socials = [
   }, // add your real handle
   {
     name: "Twitter",
-    url: "https://twitter.com/YOUR_HANDLE",
+    url: "https://x.com/raumedeuter?s=11",
     icon: "/icons/twitter x.svg",
   }, // add your real handle
   {
     name: "Substack",
-    url: "https://substack.com/YOUR_HANDLE",
+    url: "https://open.substack.com/pub/raumedeuter",
     icon: "/icons/substack.svg",
   }, // add your real handle
 ];
