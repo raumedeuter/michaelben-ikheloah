@@ -95,7 +95,6 @@ const skillCategories = {
   Cybersecurity: [
     { name: "Kali Linux", icon: "/icons/kali-dragon-icon.svg" },
     { name: "Ubuntu", icon: "/icons/ubuntu.png" },
-    // { name: "Wireshark", icon: "/icons/wireshark.svg" },
     { name: "Nmap", icon: "/icons/nmap.svg" },
     { name: "Burp Suite", icon: "/icons/burpsuite.png" },
     { name: "Metasploit", icon: "/icons/metasploit-og.png" },
@@ -113,7 +112,6 @@ const skillCategories = {
     { name: "Arduino", icon: "/icons/arduino.png" },
     { name: "Altium Circuit Maker", icon: "/icons/altium-circuitmaker.svg" },
     { name: "Matlab", icon: "/icons/matlab.png" },
-    // add your real capstone tools here
   ],
 };
 
@@ -123,135 +121,163 @@ export default function Experience() {
 
   return (
     <section id="experience" className="bg-neutral-50 scroll-mt-20">
-      <div className="max-w-3xl mx-auto px-6 py-24">
-        <Reveal><h2 className="text-2xl font-bold mb-8">Experience</h2></Reveal>
+      {/* Full-width background wrapper — sibling of the constrained div, spans the whole section */}
+      <div className="relative overflow-hidden mb-24">
+        <div
+          className="absolute inset-0 bg-cover bg-[position:30%_top] bg-fixed"
+          style={{ backgroundImage: "url('/videos/staircase.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-white/80" />
+        <div className="max-w-3xl mx-auto px-6 pt-24">
+          <Reveal>
+            <h2 className="text-2xl font-bold mb-8">Experience</h2>
+          </Reveal>
+        </div>
 
-        {/* Desktop — existing centered alternating timeline, untouched */}
-        <div className="hidden sm:block relative max-w-3xl mx-auto">
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-neutral-200" />
-          <div className="space-y-16">
-            {experience.map((job, index) => {
-              const isEven = index % 2 === 0;
-              const Icon = job.type === "education" ? GraduationCap : Briefcase;
+        <div className="relative z-10 max-w-3xl mx-auto px-6 py-16 sm:py-20">
+          {/* Desktop — existing centered alternating timeline, untouched */}
+          <div className="hidden sm:block relative max-w-3xl mx-auto">
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-neutral-200" />
+            <div className="space-y-8">
+              {experience.map((job, index) => {
+                const isEven = index % 2 === 0;
+                const Icon =
+                  job.type === "education" ? GraduationCap : Briefcase;
 
-              return (
-                <Reveal
-                  key={job.role}
-                  className={`group relative flex ${isEven ? "flex-row" : "flex-row-reverse"} items-center gap-6 rounded-lg transition-colors hover:bg-white p-4 -m-4`}
-                >
-                  <div className="absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center z-10 transition-all duration-300 group-hover:bg-accent group-hover:scale-110">
-                    <Icon className="w-5 h-5 text-white transition-transform duration-300" />
-                  </div>
-
-                  <div
-                    className={`w-1/2 ${isEven ? "pr-12 text-right" : "pl-12"}`}
+                return (
+                  <Reveal
+                    key={job.role}
+                    className={`group relative flex ${isEven ? "flex-row" : "flex-row-reverse"} items-center gap-6 rounded-lg transition-colors hover:bg-white/60 p-4 -m-4`}
                   >
+                    <div className="absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center z-10 transition-all duration-300 group-hover:bg-accent group-hover:scale-110">
+                      <Icon className="w-5 h-5 text-white transition-transform duration-300" />
+                    </div>
+
+                    <div
+                      className={`w-1/2 ${isEven ? "pr-12 text-right" : "pl-12"}`}
+                    >
+                      <h3 className="font-semibold">{job.role}</h3>
+                      <p className="text-sm text-neutral-500 mb-1">
+                        {job.company}
+                      </p>
+                      <p className="text-neutral-600 text-sm">
+                        {job.description}
+                      </p>
+                    </div>
+
+                    <div
+                      className={`w-1/2 flex items-center ${isEven ? "pl-12 justify-start" : "pr-12 justify-end"}`}
+                    >
+                      <span className="text-sm text-neutral-500">
+                        {job.period}
+                      </span>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Mobile — left-aligned line, dots, content to the right */}
+          <div className="sm:hidden relative px-2">
+            <div className="absolute left-2 top-0 bottom-0 w-px bg-neutral-500" />
+            <div className="space-y-6">
+              {experience.map((job) => {
+                const Icon =
+                  job.type === "education" ? GraduationCap : Briefcase;
+                return (
+                  <Reveal
+                    key={job.role}
+                    className="group relative pl-10 rounded-lg transition-colors hover:bg-white/70 p-4 -ml-4"
+                  >
+                    <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-neutral-900 flex items-center justify-center z-10 shadow-sm transition-all duration-300 group-hover:bg-accent group-hover:scale-110">
+                      <Icon className="w-4 h-4 text-white transition-transform duration-300" />
+                    </div>
                     <h3 className="font-semibold">{job.role}</h3>
                     <p className="text-sm text-neutral-500 mb-1">
-                      {job.company}
+                      {job.company} · {job.period}
                     </p>
                     <p className="text-neutral-600 text-sm">
                       {job.description}
                     </p>
-                  </div>
-
-                  <div
-                    className={`w-1/2 flex items-center ${isEven ? "pl-12 justify-start" : "pr-12 justify-end"}`}
-                  >
-                    <span className="text-sm text-neutral-500">
-                      {job.period}
-                    </span>
-                  </div>
-                </Reveal>
-              );
-            })}
+                  </Reveal>
+                );
+              })}
+            </div>
           </div>
-      </div>
-
-      {/* Mobile — left-aligned line, dots, content to the right, no overlap */}
-      <div className="sm:hidden relative">
-        <div className="absolute left-2 top-0 bottom-0 w-px bg-neutral-200" />
-        <div className="space-y-10">
-          {experience.map((job) => {
-            const Icon = job.type === "education" ? GraduationCap : Briefcase;
-            return (
-              <Reveal
-                key={job.role}
-                className="group relative pl-10 rounded-lg transition-colors hover:bg-neutral-50 p-4 -ml-4"
-              >
-                <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-neutral-900 flex items-center justify-center z-10 transition-all duration-300 group-hover:bg-accent group-hover:scale-110">
-                  <Icon className="w-4 h-4 text-white transition-transform duration-300" />
-                </div>
-                <h3 className="font-semibold">{job.role}</h3>
-                <p className="text-sm text-neutral-500 mb-1">
-                  {job.company} · {job.period}
-                </p>
-                <p className="text-neutral-600 text-sm">{job.description}</p>
-              </Reveal>
-            );
-          })}
         </div>
       </div>
 
-      <Reveal><h2 className="text-2xl font-bold mb-8 mt-24">Skills</h2></Reveal>
+      <div className="max-w-3xl mx-auto px-6 pb-24">
+        <Reveal>
+          <h2 className="text-2xl font-bold mb-8">Skills</h2>
+        </Reveal>
         <Reveal delay={100}>
-      <div className="flex gap-2 mb-8 border-b border-neutral-200 overflow-x-auto">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveTab(category)}
-            className={`px-4 py-2 text-sm font-medium border-b-2 whitespace-nowrap transition-colors ${
-              activeTab === category
-                ? "border-neutral-900 text-neutral-900"
-                : "border-transparent text-neutral-400 hover:text-neutral-600"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-4 sm:grid-cols-6 gap-x-6 gap-y-10 mb-24">
-        {skillCategories[activeTab].map((skill) => (
-          <div
-            key={skill.name}
-            className="flex flex-col items-center gap-3 text-center"
-          >
-            <img
-              src={skill.icon}
-              alt={skill.name}
-              className="w-12 h-12 sm:w-14 sm:h-14 grayscale hover:grayscale-0 transition-all duration-300"
-            />
-            <span className="text-xs text-neutral-600">{skill.name}</span>
+          <div className="flex gap-2 mb-8 border-b border-neutral-200 overflow-x-auto">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveTab(category)}
+                className={`px-4 py-2 text-sm font-medium border-b-2 whitespace-nowrap transition-colors ${
+                  activeTab === category
+                    ? "border-neutral-900 text-neutral-900"
+                    : "border-transparent text-neutral-400 hover:text-neutral-600"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
           </div>
-        ))}
-      </div>
-      </Reveal>
 
-      <Reveal><h2 className="text-2xl font-bold mb-8">Certifications</h2></Reveal>
-      <div className="grid sm:grid-cols-2 gap-4">
-        {certifications.map((cert) => (
-          <Reveal key={cert.name}>
-            <a
-            href={cert.file}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-start gap-4 border border-neutral-200 rounded-lg p-5 transition-colors hover:border-accent"
-          >
-            <div className="shrink-0 w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center transition-colors group-hover:bg-accent">
-              <Award className="w-5 h-5 text-neutral-700 transition-colors group-hover:text-white" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-sm leading-snug">
-                {cert.name}
-              </h3>
-              <p className="text-sm text-neutral-500 mt-1">{cert.issuer}</p>
-            </div>
-          </a>
-          </Reveal>
-        ))}
+          <div className="grid grid-cols-4 sm:grid-cols-6 gap-x-6 gap-y-10 mb-24">
+            {skillCategories[activeTab].map((skill) => (
+              <div
+                key={skill.name}
+                className="flex flex-col items-center gap-3 text-center"
+              >
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="w-12 h-12 sm:w-14 sm:h-14 grayscale hover:grayscale-0 transition-all duration-300"
+                />
+                <span className="text-xs text-neutral-600">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <h2 className="text-2xl font-bold mb-8">Certifications</h2>
+        </Reveal>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {certifications.map((cert) => (
+            <Reveal key={cert.name}>
+              <a
+                href={cert.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-4 border border-neutral-200 rounded-lg p-5 transition-colors hover:border-accent"
+              >
+                <div className="shrink-0 w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center transition-colors group-hover:bg-accent">
+                  <Award className="w-5 h-5 text-neutral-700 transition-colors group-hover:text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-sm leading-snug">
+                    {cert.name}
+                  </h3>
+                  <p className="text-sm text-neutral-500 mt-1">{cert.issuer}</p>
+                  <span className="shrink-0 inline-flex items-center gap-1 text-xs font-medium text-accent whitespace-nowrap mt-0.5">
+                    View credential
+                    <span className="transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
+                  </span>
+                </div>
+              </a>
+            </Reveal>
+          ))}
+        </div>
       </div>
-       </div>
     </section>
   );
 }
