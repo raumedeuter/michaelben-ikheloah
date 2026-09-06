@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import LocationTime from "./LocationTime";
 
 const socials = [
   {
@@ -85,6 +86,9 @@ export default function Contact() {
               </a>
             ))}
           </div>
+        </Reveal>
+        <Reveal delay={500}>
+          <LocationTime />
         </Reveal>
       </div>
     </section>

@@ -15,6 +15,12 @@
   opacity: 0.1;
 }
 
+.dot-grid-light {
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.1;
+}
+
 @media (min-width: 640px) {
   .dot-grid {
     opacity: 0.3;

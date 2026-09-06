@@ -1,6 +1,9 @@
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden scroll-mt-20">
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden scroll-mt-20"
+    >
       {/* Background image layer */}
       <div
         className="absolute inset-0 bg-cover bg-[position:75%_center] sm:bg-[position:65%_center] grayscale"
@@ -8,8 +11,12 @@ export default function Hero() {
       />
 
       {/* Gradient overlay — solid behind text, fades toward the image's detail */}
-      {/* Gradient overlay — flat wash on mobile, directional fade on desktop */}
-<div className="absolute inset-0 bg-white/70 sm:bg-gradient-to-r sm:from-white sm:via-white/40 sm:to-transparent" />
+
+      {/* Mobile overlay — flat wash, hidden on desktop */}
+      <div className="absolute inset-0 bg-white/70 sm:hidden" />
+
+      {/* Desktop overlay — directional gradient, hidden on mobile */}
+      <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-white via-white/70 to-transparent" />
 
       {/* Content — sits above both layers */}
       <div className="relative z-10 px-6 lg:px-12 max-w-3xl">
@@ -20,8 +27,8 @@ export default function Hero() {
         </h2>
         <p className="text-neutral-600 leading-relaxed">
           I build full-stack web applications and secure systems — from
-          government-grade platforms to client sites and personal projects — with
-          a growing focus on clean, thoughtful frontend engineering.
+          government-grade platforms to client sites and personal projects —
+          with a growing focus on clean, thoughtful frontend engineering.
         </p>
         <div className="flex flex-wrap gap-4 mt-6">
           <a
@@ -40,5 +47,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
