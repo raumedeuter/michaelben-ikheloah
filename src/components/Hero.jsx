@@ -8,7 +8,8 @@ export default function Hero() {
       />
 
       {/* Gradient overlay — solid behind text, fades toward the image's detail */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent sm:from-white sm:via-white/40 sm:to-transparent" />
+      {/* Gradient overlay — flat wash on mobile, directional fade on desktop */}
+<div className="absolute inset-0 bg-white/70 sm:bg-gradient-to-r sm:from-white sm:via-white/40 sm:to-transparent" />
 
       {/* Content — sits above both layers */}
       <div className="relative z-10 px-6 lg:px-12 max-w-3xl">

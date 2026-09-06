@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Briefcase, GraduationCap, Award } from "lucide-react";
 import Reveal from "./Reveal";
+import ParallaxBackground from "./ParallaxBackground";
 
 const experience = [
   {
@@ -123,10 +124,8 @@ export default function Experience() {
     <section id="experience" className="bg-neutral-50 scroll-mt-20">
       {/* Full-width background wrapper — sibling of the constrained div, spans the whole section */}
       <div className="relative overflow-hidden mb-24">
-        <div
-          className="absolute inset-0 bg-cover bg-[position:30%_top] bg-fixed"
-          style={{ backgroundImage: "url('/videos/staircase.jpg')" }}
-        />
+        <ParallaxBackground image="/videos/staircase.jpg" position="50% top" />
+
         <div className="absolute inset-0 bg-white/80" />
         <div className="max-w-3xl mx-auto px-6 pt-24">
           <Reveal>
