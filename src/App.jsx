@@ -7,6 +7,8 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
+
 
 
 export default function App() {
@@ -20,6 +22,7 @@ export default function App() {
     <>
       <Nav />
       <main>
+        <ScrollToTop />
         <Hero />
         <About />
         <Projects />

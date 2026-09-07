@@ -9,13 +9,22 @@ const links = [
 ];
 
 const socialLinks = [
-  { name: "Twitter", url: "https://twitter.com/YOUR_HANDLE" }, // fill in your real handle
+  { name: "Twitter", url: "https://x.com/raumedeuter?s=11" }, // fill in your real handle
   { name: "Instagram", url: "https://instagram.com/YOUR_HANDLE" },
   {
     name: "LinkedIn",
     url: "http://www.linkedin.com/in/michael-ben-ikheloah-a3324b2a7",
   },
 ];
+function HamburgerIcon({ open }) {
+  return (
+    <div className="relative w-6 h-5 flex flex-col justify-between">
+      <span className={`h-0.5 bg-white transition-all duration-300 ${open ? 'w-6 rotate-45 translate-y-2' : 'w-6'}`} />
+      <span className={`h-0.5 bg-white transition-all duration-300 ${open ? 'w-0 opacity-0' : 'w-4 self-end'}`} />
+      <span className={`h-0.5 bg-white transition-all duration-300 ${open ? 'w-6 -rotate-45 -translate-y-2' : 'w-6'}`} />
+    </div>
+  )
+}
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -130,21 +139,21 @@ export default function Nav() {
     );
   }
 
-  function HamburgerIcon() {
-    return (
-      <div className="relative w-6 h-5 flex flex-col justify-between">
-        <span
-          className={`h-0.5 bg-white transition-all duration-300 ${menuOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`}
-        />
-        <span
-          className={`h-0.5 bg-white transition-all duration-300 ${menuOpen ? "w-0 opacity-0" : "w-4 self-end"}`}
-        />
-        <span
-          className={`h-0.5 bg-white transition-all duration-300 ${menuOpen ? "w-6 -rotate-45 -translate-y-2" : "w-6"}`}
-        />
-      </div>
-    );
-  }
+  // function HamburgerIcon() {
+  //   return (
+  //     <div className="relative w-6 h-5 flex flex-col justify-between">
+  //       <span
+  //         className={`h-0.5 bg-white transition-all duration-300 ${menuOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`}
+  //       />
+  //       <span
+  //         className={`h-0.5 bg-white transition-all duration-300 ${menuOpen ? "w-0 opacity-0" : "w-4 self-end"}`}
+  //       />
+  //       <span
+  //         className={`h-0.5 bg-white transition-all duration-300 ${menuOpen ? "w-6 -rotate-45 -translate-y-2" : "w-6"}`}
+  //       />
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
@@ -181,7 +190,7 @@ export default function Nav() {
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               className="hidden sm:flex w-12 h-12 rounded-full bg-neutral-900 items-center justify-center shadow-lg hover:bg-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <HamburgerIcon />
+              <HamburgerIcon open={menuOpen} />
             </button>
           )}
 
@@ -191,11 +200,19 @@ export default function Nav() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             className="sm:hidden w-12 h-12 rounded-full bg-neutral-900 flex items-center justify-center shadow-lg hover:bg-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
-            <HamburgerIcon />
+            <HamburgerIcon open={menuOpen} />
           </button>
         </div>
       </header>
 
+      <div
+        className={`fixed inset-0 z-[60] bg-black/40 transition-opacity duration-300 ${
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setMenuOpen(false)}
+      />
       {/* Slide-out panel */}
       <div
         className={`fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-[70] flex flex-col transition-transform duration-300 ${

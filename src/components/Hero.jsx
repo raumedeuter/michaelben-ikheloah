@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-white/70 sm:hidden" />
 
       {/* Desktop overlay — directional gradient, hidden on mobile */}
-      <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-white via-white/70 to-transparent" />
+      <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-white via-white/40 to-transparent" />
 
       {/* Content — sits above both layers */}
       <div className="relative z-10 px-6 lg:px-12 max-w-3xl">

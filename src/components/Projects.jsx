@@ -1,39 +1,37 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Code2, ExternalLink } from "lucide-react";
 import { projects } from "../data/projects";
 import Reveal from "./Reveal";
 
 function ProjectVideo({ src, poster, title }) {
-  const videoRef = useRef(null)
-  const [playing, setPlaying] = useState(false)
-  const [isTouch, setIsTouch] = useState(false)
-
-  useEffect(() => {
-    setIsTouch(window.matchMedia('(hover: none) and (pointer: coarse)').matches)
-  }, [])
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
+  const [isTouch] = useState(
+    () => window.matchMedia("(hover: none) and (pointer: coarse)").matches,
+  );
 
   function handleEnter() {
-    if (isTouch) return
-    setPlaying(true)
-    videoRef.current.play()
+    if (isTouch) return;
+    setPlaying(true);
+    videoRef.current.play();
   }
 
   function handleLeave() {
-    if (isTouch) return
-    setPlaying(false)
-    videoRef.current.pause()
-    videoRef.current.currentTime = 0
+    if (isTouch) return;
+    setPlaying(false);
+    videoRef.current.pause();
+    videoRef.current.currentTime = 0;
   }
 
   function handleTap() {
-    if (!isTouch) return
+    if (!isTouch) return;
     if (playing) {
-      setPlaying(false)
-      videoRef.current.pause()
-      videoRef.current.currentTime = 0
+      setPlaying(false);
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
     } else {
-      setPlaying(true)
-      videoRef.current.play()
+      setPlaying(true);
+      videoRef.current.play();
     }
   }
 
@@ -57,15 +55,15 @@ function ProjectVideo({ src, poster, title }) {
       />
       <div
         className={`absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity duration-300 ${
-          playing ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          playing ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
         <span className="text-white text-sm font-medium tracking-wide">
-          {isTouch ? 'Tap to preview' : 'Hover to preview'}
+          {isTouch ? "Tap to preview" : "Hover to preview"}
         </span>
       </div>
     </div>
-  )
+  );
 }
 
 function CornerFrame() {
