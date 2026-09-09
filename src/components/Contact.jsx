@@ -14,7 +14,7 @@ const socials = [
   },
   {
     name: "Instagram",
-    url: "https://instagram.com/YOUR_HANDLE",
+    url: "https://www.instagram.com/michaell.ben?stkn=YTljNjV3N2NmOHoy&utm_source=qr",
     icon: "/icons/instagram.svg",
   }, // add your real handle
   {

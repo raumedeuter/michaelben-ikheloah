@@ -10,7 +10,7 @@ const experience = [
     company: "Pyrich Group Limited",
     period: "Dec 2025 — Present",
     description:
-      "Serving my National Youth Service at the organization that shaped my early career, continuing work on government and client platforms.",
+      "Undergoing my National Youth Service at the organization that shaped my early career, continuing work on government and client platforms.",
   },
   {
     type: "work",
@@ -18,7 +18,7 @@ const experience = [
     company: "Pyrich Group Limited",
     period: "Mar 2024 — Sep 2024",
     description:
-      "Contributed to the frontend of the Labour Market Information System (LMIS), supported the NSITF Enterprise Business Suite, and documented NIWA user manuals.",
+      "Contributed to the frontend of the Labour Market Information System using React and Node.js, ran test scripts on the NIWA Express and Optima platforms and co-authored user manuals for the National Inland Waterways Authority.",
   },
   {
     type: "work",
@@ -26,7 +26,7 @@ const experience = [
     company: "Hagital Consulting",
     period: "Jan 2024 — Jun 2024",
     description:
-      "Ran ethical hacking simulations and vulnerability assessments using Burp Suite, Metasploit, Wireshark, and Nmap.",
+      "Ran ethical hacking simulations — including SQL injection, XSS, and brute-force testing — using Burp Suite and Metasploit, alongside vulnerability scanning and network analysis with Wireshark and Nmap. Studied GRC frameworks and OSI/TCP-IP models for compliance alignment.",
   },
   {
     type: "work",
@@ -34,7 +34,7 @@ const experience = [
     company: "P2E Technologies",
     period: "Jul 2023 — Oct 2023",
     description:
-      "Provided infrastructure support — Veritas Backup Exec, Windows Server, VMware — and assisted with EBS module testing during NSITF promotion exams.",
+      "Provided infrastructure support — installing and configuring Veritas Backup Exec, Windows Server 2016, and VMware — and assisted with EBS module testing and domain configuration for NSITF.",
   },
   {
     type: "work",
@@ -42,7 +42,7 @@ const experience = [
     company: "Pyrich Group Limited",
     period: "Jul 2022 — Oct 2022",
     description:
-      "First internship — completed responsive web design certification projects, registered MDA codes on the FCC portal, and critiqued UI/UX for the NELEX project.",
+      "My first internship — built early frontend skills with HTML, CSS, and JavaScript, completed various web certification projects on FreeCodeCamp, registered over 200 MDA codes on the Federal Character Commission portal, and critiqued UI/UX for the NELEX project.",
   },
   {
     type: "education",
@@ -50,7 +50,7 @@ const experience = [
     company: "Afe Babalola University",
     period: "Sep 2020 — Oct 2025",
     description:
-      "Graduated with a thesis on designing and implementing an IoT-based 1.8kWh remote-controlled lithium-ion battery bank system.",
+      "Completed a final-year engineering project involving the design and implementation of a 1.8kWh remotely controlled lithium-ion battery bank, combining embedded systems, remote communication, and hardware–software integration.",
   },
 ];
 
