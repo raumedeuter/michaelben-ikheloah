@@ -7,7 +7,7 @@ export const projects = [
     title: 'theHabakkuk2:2',
     github: 'https://github.com/Raumedeuter/theHabakkuk2-2',
     description: 'An e-commerce web app selling journals, built for a business owner.',
-    stack: ['React', 'Tailwind CSS', 'Paystack API', 'Vercel Serverless Functions', 'Node.js'],
+    stack: ['React', 'Tailwind CSS', 'Paystack API', 'Vercel Serverless Functions', 'Node.js', 'PostgreSQL', 'Supabase'],
     image: 'thehabakuk website', // path to a screenshot, add later
     video: '/videos/H22.mp4',
     demo: 'https://thehabakkuk2-2.vercel.app',
