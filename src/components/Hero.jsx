@@ -21,7 +21,7 @@ export default function Hero() {
       {/* Content — sits above both layers */}
       <div className="relative z-10 px-6 lg:px-12 max-w-3xl">
         <p className="text-lg text-neutral-500 mb-2">Hello, I'm</p>
-        <h1 className="text-5xl font-bold mb-2">Michael Ben-Ikheloah</h1>
+        <h1 className="text-5xl font-bold mb-2">Michael<br className="sm:hidden" /> Ben-Ikheloah</h1>
         <h2 className="text-2xl text-neutral-500 mb-6">
           Computer Engineer | Software Developer | Cybersecurity
         </h2>
