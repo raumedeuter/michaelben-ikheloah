@@ -36,6 +36,17 @@ export const projects = [
     featured: true,
   },
   {
+    id: 'memorial-site',
+    title: 'Memorial Site',
+    github: 'https://github.com/raumedeuter/Prince-M.A-Ochojila.git',
+    description: 'A memorial website for a deceased loved one, designed to honor their memory and provide a space for friends and family to share memories.',
+    stack: ['React.js', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Neon'],
+    image: '',
+    video: '/videos/memorial-site.mp4',
+    demo: 'https://prince-m-a-ochojila.vercel.app',
+    featured: true,
+  },
+  {
     id: 'LMIS',
     title: 'Labour Market Information System (LMIS)',
     github: '',
@@ -55,7 +66,7 @@ export const projects = [
     image: '',
     video: '',
     demo: 'https://sunce-itelenergy.com',
-    featured: true,
+    featured: false,
   },
   {
     id: '042',
