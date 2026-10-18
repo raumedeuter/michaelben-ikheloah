@@ -21,7 +21,7 @@ export const projects = [
     stack: ['HTML', 'CSS', 'JavaScript'],
     image: 'piratech website', // path to a screenshot, add later
     video: '/videos/piratech.mp4',
-    demo: 'https://piratechnigeria.com',
+    demo: 'https://piratech-nigeria-preview-demo.vercel.app',
     featured: true,
   },
     {
