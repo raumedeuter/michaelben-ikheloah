@@ -8,9 +8,9 @@ const experience = [
     type: "work",
     role: "NYSC — Software Developer",
     company: "Pyrich Group Limited",
-    period: "Dec 2025 — Present",
+    period: "Dec 2025 — Oct 2026",
     description:
-      "Undergoing my National Youth Service at the organization that shaped my early career, continuing work on government and client platforms.",
+      "Went through my National Youth Service at the organization that shaped my early career, continuing work on government and client platforms.",
   },
   {
     type: "work",
